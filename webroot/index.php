@@ -37,7 +37,7 @@ $ujg_text  = new UnnaturalJapaneseGenerator($post_text);
     </header>
     <h1></h1>
     <main class="container">
-        <form id="submit_area" action="index.php" method="post">
+        <form id="submit_area" action="" method="post">
             <div class="form-group">
                 <p class="text-info">日本語を中国語に翻訳してから再度日本語に翻訳しなおすことで、翻訳ミスしたような不自然な日本語を生成します。
                 <br>Twitterに投稿してフォロワーをざわつかせたり、自由にお使いください。<p>
