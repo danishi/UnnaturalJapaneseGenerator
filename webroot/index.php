@@ -8,7 +8,6 @@ $post_text = str_replace(')', '', str_replace('(', '', $post_text));
 
 /*
 todo
-・ログ実装
 ・ツイートボタン
 ・見た目を整える
 */

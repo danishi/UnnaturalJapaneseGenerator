@@ -2,7 +2,10 @@
 namespace UnnaturalJapaneseGenerator;
 
 require_once dirname ( __FILE__ ) . '/../vendor/autoload.php';
+
 use GoogleTranslate\GoogleTranslate;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 /**
  * @author danishi
@@ -12,7 +15,7 @@ use GoogleTranslate\GoogleTranslate;
 final class UnnaturalJapaneseGenerator
 {
 
-	const VERSION = "0.0.1";
+    const VERSION = "0.0.1";
 
 	/**
 	 * @var string
@@ -31,6 +34,7 @@ final class UnnaturalJapaneseGenerator
 	 */
 	public function __construct(string $text)
 	{
+        // convert
         $this->naturalJapanease = $text;
 
         $gt = new GoogleTranslate($text, 'ja', 'zh-CN');
@@ -40,6 +44,11 @@ final class UnnaturalJapaneseGenerator
         $unnaturalJapanease = $gt->exec();
 
         $this->unnaturalJapanease = mb_substr($unnaturalJapanease, 0, mb_strpos($unnaturalJapanease, '('));
+
+        // logging
+        $logger = new Logger('logger');
+        $logger->pushHandler(new StreamHandler(__DIR__ . '/../logs/' . 'UnnaturalJapaneseGenerator.log', Logger::INFO));
+        $logger->addInfo('from:[' . $this->naturalJapanease . "]\tto:[" . $this->unnaturalJapanease .']');
     }
 
     public function __toString() {

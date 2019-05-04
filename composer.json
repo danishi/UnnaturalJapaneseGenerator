@@ -1,5 +1,6 @@
 {
     "require": {
-        "ammarfaizi2/googletranslate": "^0.0.1"
+        "ammarfaizi2/googletranslate": "^0.0.1",
+        "monolog/monolog": "^1.24"
     }
 }
