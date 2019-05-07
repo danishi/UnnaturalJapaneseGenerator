@@ -35,39 +35,40 @@ $ujg_text  = new UnnaturalJapaneseGenerator($post_text);
             </div>
         </nav>
     </header>
-    <h1></h1>
+    <div id="wrapper">
     <main class="container">
-        <form id="submit_area" action="" method="post">
-            <div class="form-group">
-                <p class="text-info">日本語を中国語に翻訳してから再度日本語に翻訳しなおすことで、翻訳ミスしたような不自然な日本語を生成します。
-                <br>Twitterに投稿してフォロワーをざわつかせたり、自由にお使いください。<p>
+            <form id="submit_area" action="" method="post">
+                <div class="form-group">
+                    <p class="text-info">日本語を中国語に翻訳してから再度日本語に翻訳しなおすことで、翻訳ミスしたような不自然な日本語を生成します。
+                    <br>Twitterに投稿してフォロワーをざわつかせたり、自由にお使いください。<p>
 
-                <textarea name="text" class="form-control" rows="10" maxlength="1000" placeholder="変換したいテキストを入力してください。"><?= $post_text ?></textarea>
-                <div id="countor_area" class="text-muted">
-                    <span id="countor">0</span>/1000
+                    <textarea name="text" class="form-control" rows="10" maxlength="1000" placeholder="変換したいテキストを入力してください。"><?= $post_text ?></textarea>
+                    <div id="countor_area" class="text-muted">
+                        <span id="countor">0</span>/1000
+                    </div>
                 </div>
-            </div>
 
-            <button type="submit" class="btn btn-success"><i class="fas fa-sync-alt"></i> 変換</button>
-        </form>
+                <button type="submit" class="btn btn-success"><i class="fas fa-sync-alt"></i> 変換</button>
+            </form>
 
-        <div class="card">
-            <div class="card-header">
-                変換後テキスト
+            <div class="card">
+                <div class="card-header">
+                    変換後テキスト
+                </div>
+                <div class="card-body">
+                    <?= $ujg_text ?>
+                </div>
+                <button id="select_btn" class="btn( btn-info"><i class="far fa-clipboard"></i> 選択</button>
             </div>
-            <div class="card-body">
-                <?= $ujg_text ?>
-            </div>
-            <button id="select_btn" class="btn( btn-info"><i class="far fa-clipboard"></i> 選択</button>
-        </div>
-        <?php if(!empty($post_text)) : ?>
-        <hr>
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=<?= urlencode($ujg_text) ?>"
-         class="twitter-share-button" data-show-count="false" data-size="large">ツイート</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <?php endif; ?>
-
+            <?php if(!empty($post_text)) : ?>
+            <hr>
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=<?= urlencode($ujg_text) ?>"
+            class="twitter-share-button" data-show-count="false" data-size="large">ツイート</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <?php endif; ?>
     </main>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <p class="text-muted">Created by <a target="_blank" href="https://twitter.com/Danishi411">Danishi</a>.</p>
