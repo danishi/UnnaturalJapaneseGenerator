@@ -68,6 +68,7 @@ $ujg_text  = new UnnaturalJapaneseGenerator($post_text);
             class="twitter-share-button" data-show-count="false" data-size="large">ツイート</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <?php endif; ?>
+            <p></p>
     </main>
     </div>
 
