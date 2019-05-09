@@ -23,6 +23,7 @@ $ujg_text  = new UnnaturalJapaneseGenerator($post_text);
     <meta property="og:url" content="https://www.apps.danishi.net/ujg/" />
     <meta property="og:title" content="不自然な日本語ジェネレーター" />
     <meta property="og:description" content="日本語を中国語に翻訳してから再度日本語に翻訳しなおすことで、翻訳ミスしたような不自然な日本語を生成します。" />
+    <meta property="og:image" content="img/study_nihongo.png" />
     <!-- twitter card -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
