@@ -34,10 +34,6 @@ final class UnnaturalJapaneseGenerator
 	 */
 	public function __construct(string $text)
 	{
-        if(empty($text)){
-            return;
-        }
-
         // convert
         $this->naturalJapanease = $text;
 
