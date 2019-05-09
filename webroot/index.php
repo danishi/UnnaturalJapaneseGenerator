@@ -18,6 +18,12 @@ $ujg_text  = new UnnaturalJapaneseGenerator($post_text);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name=description content="">
     <meta name=keywords content="誤翻訳">
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:url" content="https://www.apps.danishi.net/ujg/" />
+    <meta property="og:title" content="不自然な日本語ジェネレーター" />
+    <meta property="og:description" content="日本語を中国語に翻訳してから再度日本語に翻訳しなおすことで、翻訳ミスしたような不自然な日本語を生成します。" />
+    <!-- twitter card -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.4.1.min.js"></script>
@@ -64,7 +70,7 @@ $ujg_text  = new UnnaturalJapaneseGenerator($post_text);
             </div>
             <?php if(!empty($post_text)) : ?>
             <hr>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=<?= urlencode($ujg_text) ?>"
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=<?= urlencode($ujg_text.' #不自然な日本語ジェネレーター') ?>"
             class="twitter-share-button" data-show-count="false" data-size="large">ツイート</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <?php endif; ?>
