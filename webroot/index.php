@@ -28,7 +28,7 @@ $ujg_text  = new UnnaturalJapaneseGenerator($post_text);
     <meta property="og:image" content="img/study_nihongo.png" />
     <!-- twitter card -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css?<?=Utility::cssUnCache()?>">
+    <link rel="stylesheet" href="css/style.css<?=Utility::cssUnCache()?>">
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/gtag.js"></script>

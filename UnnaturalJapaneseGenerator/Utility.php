@@ -30,7 +30,9 @@ final class Utility{
         );
 
         if(in_array($_SERVER['REMOTE_ADDR'], $whitelist) && $localhostOnly){
-            return date('YmdHis');
+            return '?'.date('YmdHis');
+        }else{
+            return '';
         }
     }
 }
