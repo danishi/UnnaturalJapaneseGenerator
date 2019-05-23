@@ -1,12 +1,4 @@
-header{
-    background-color: #d3d3d3;
-}
-
-body{
-    height: 100%;
-}
-
-body > .container {
+main > .container {
     padding: 60px 15px 0;
 }
 
@@ -19,14 +11,7 @@ body > .container {
     margin: -15px 0;
 }
 
-#wrapper {
-    min-height: calc(100vh - 120px);
-}
-
 .footer {
-    position: absolute;
-    width: 100%;
-    height: 60px;
     background-color: #d3d3d3;
 }
 .footer > .container {

@@ -1,7 +1,9 @@
 <?php
 require_once dirname ( __FILE__ ) . '/../UnnaturalJapaneseGenerator/UnnaturalJapaneseGenerator.php';
+require_once dirname ( __FILE__ ) . '/../UnnaturalJapaneseGenerator/Utility.php';
 
 use UnnaturalJapaneseGenerator\UnnaturalJapaneseGenerator;
+use UnnaturalJapaneseGenerator\Utility;
 
 $post_text = filter_input(INPUT_POST, 'text', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $post_text = str_replace(')', '', str_replace('(', '', $post_text));
@@ -26,25 +28,22 @@ $ujg_text  = new UnnaturalJapaneseGenerator($post_text);
     <meta property="og:image" content="img/study_nihongo.png" />
     <!-- twitter card -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?<?=Utility::cssUnCache()?>">
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/gtag.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
     <header>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">不自然な日本語ジェネレーター</a>
-                </div>
-            </div>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">不自然な日本語ジェネレーター</a>
         </nav>
     </header>
-    <div id="wrapper">
-    <main class="container">
+
+    <main role="main" class="flex-shrink-0">
+        <div class="container">
             <form id="submit_area" action="" method="post">
                 <div class="form-group">
                     <p></p>
@@ -76,10 +75,10 @@ $ujg_text  = new UnnaturalJapaneseGenerator($post_text);
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <?php endif; ?>
             <p></p>
+        </div>
     </main>
-    </div>
 
-    <footer class="footer">
+    <footer class="footer mt-auto py-1">
         <div class="container">
             <p class="text-muted">Created by <a target="_blank" href="https://twitter.com/Danishi411">Danishi</a>.</p>
         </div>
