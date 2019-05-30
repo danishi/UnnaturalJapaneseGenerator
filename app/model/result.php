@@ -50,15 +50,21 @@ EOF;
     public function insert(array $param) {
         $sql  = <<< EOF
 INSERT INTO {$this->name}(
-    name
+    before,
+    after,
+    date
 )VALUES(
-    :name
+    :before,
+    :after,
+    :date
 )
 EOF;
 
         try {
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':name', $param['name'], PDO::PARAM_STR);
+            $stmt->bindParam(':before', $param['before'], PDO::PARAM_STR);
+            $stmt->bindParam(':after', $param['after'], PDO::PARAM_STR);
+            $stmt->bindParam(':date', $param['date'], PDO::PARAM_STR);
             $stmt->execute();
         }catch(Exception $e){
             $this->logging($e->getMessage());

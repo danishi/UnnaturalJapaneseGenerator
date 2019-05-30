@@ -28,7 +28,7 @@ class index extends controller
 	private $unnaturalJapanease;
 
     public function __construct(){
-
+        date_default_timezone_set('Asia/Tokyo');
     }
 
     public function index(){
@@ -58,10 +58,12 @@ class index extends controller
 
         $this->logging('from:[' . $this->naturalJapanease . "]\tto:[" . $this->unnaturalJapanease .']');
 
-        // $mytable = new mytable();
-        // $mytable->insert([
-        //     'name'  => $param
-        // ]);
+        $result = new result();
+        $result->insert([
+            'before'  => $this->naturalJapanease,
+            'after'   => $this->unnaturalJapanease,
+            'date'    => date('Y-m-d H:i:s'),
+        ]);
 
         return $this->view($this->name, [
             'title'     => '不自然な日本語ジェネレーター',
