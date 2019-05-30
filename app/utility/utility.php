@@ -1,23 +1,31 @@
 <?php
-namespace UnnaturalJapaneseGenerator;
-
-require_once dirname ( __FILE__ ) . '/../vendor/autoload.php';
+namespace app\utility;
 
 /**
  * @author danishi
- * @license MIT
- * @version 0.0.1
  */
 final class Utility{
 
-	/**
-	 * Constructor.
-	 */
     protected function __construct(){
 
     }
 
-    /**20190523 153159
+    /**
+     * ini file read
+     * @param  string $key
+     * @param  string $sub_key
+     * @return string
+     */
+    public static function getIniValue(string $key, string $sub_key = null): string{
+        $array_ini_file = parse_ini_file(__DIR__ . "/../app.ini", true);
+        $value = $array_ini_file[$key];
+        if(is_array($value) && !empty($sub_key)){
+            $value = $value[$sub_key];
+        }
+        return $value;
+    }
+
+    /**
      * usage <link rel="stylesheet" href="css/style.css?<?=Utility::cssUnCache()?>">
      * @param  bool
      * @return string
