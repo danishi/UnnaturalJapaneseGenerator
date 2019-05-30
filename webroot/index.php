@@ -4,8 +4,8 @@
  * @author danishi
  */
 $uri = $_SERVER['REQUEST_URI'];
-if(empty($uri) || $uri == '/') {
-    $uri = '/index';
+if(empty($uri) || $uri == '/ujg/') {
+    $uri = '/ujg/index';
 }
 
 $array_parse_uri = explode('/', $uri);
