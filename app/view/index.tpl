@@ -1,5 +1,6 @@
 <!DOCTYPE>
 <html lang="ja">
+{config_load file='smarty.config'}
 <head>
 {include file='template/head_tag.tpl'}
 </head>
@@ -20,6 +21,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-success"><i class="fas fa-sync-alt"></i> 変換</button>
+                <a class="btn btn-primary ml-2" href="{$baseUrl}/history" role="button"><i class="fa fa-history"></i> 履歴</a>
             </form>
 
             <div class="card">
@@ -29,7 +31,7 @@
                 <div class="card-body">
                     {$ujg_text}
                 </div>
-                <button id="select_btn" class="btn( btn-info"><i class="far fa-clipboard"></i> 選択</button>
+                <button id="select_btn" class="btn btn-info"><i class="far fa-clipboard"></i> 選択</button>
             </div>
             {if !empty($post_text)}
             <hr>
@@ -41,7 +43,7 @@
         </div>
     </main>
 </body>
-{include file='template/footer.tpl' copyright='danishi'}
+{include file='template/footer.tpl'}
 {include file='template/foot_tag.tpl'}
 <script>
     $(function () {

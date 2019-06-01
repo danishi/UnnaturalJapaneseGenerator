@@ -14,7 +14,7 @@ use app\utility\utility;
  *
  * @author danishi
  */
-class model
+abstract class model
 {
     private $name   = 'model';
     public $pdo;

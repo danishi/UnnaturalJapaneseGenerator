@@ -14,12 +14,12 @@ use app\utility\utility;
  *
  * @author danishi
  */
-class controller
+abstract class controller
 {
     private $name   = 'controller';
 
-    protected function __construct(){
-        // impossible new
+    public function __construct(){
+        date_default_timezone_set('Asia/Tokyo');
     }
 
     public function __toString():string {
@@ -47,14 +47,18 @@ class controller
 
         header_register_callback(function(){
             header_remove('X-Powered-By');
+            header("X-FRAME-OPTIONS: DENY");
         });
 
         $Smarty = new Smarty();
         $Smarty->template_dir = __DIR__ . '/../view/';
         $Smarty->compile_dir  = __DIR__ . '/../view/view_c/';
-        $Smarty->escape_html  = true;
+        $Smarty->config_dir   = __DIR__ . '/../view/config/';
+        $Smarty->escape_html  = false;
         $Smarty->assign([
-            'cssUnCache'    => Utility::cssUnCache()
+            'cssUnCache'    => Utility::cssUnCache(),
+            'url'           => Utility::getUrl(),
+            'baseUrl'       => Utility::getBaseUrl(),
         ]);
         $Smarty->assign($param);
         return $Smarty->fetch($template . '.tpl');

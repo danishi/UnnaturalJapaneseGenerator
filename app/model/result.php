@@ -31,6 +31,7 @@ class result extends model
         $sql  = <<< EOF
 SELECT *
 FROM {$this->name}
+ORDER BY date DESC
 EOF;
 
         try {
