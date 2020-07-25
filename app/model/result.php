@@ -32,6 +32,7 @@ class result extends model
 SELECT *
 FROM {$this->name}
 ORDER BY date DESC
+LIMIT 10
 EOF;
 
         try {
